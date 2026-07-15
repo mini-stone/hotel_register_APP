@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>客房状态管理系统</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <h1>🏨 客房状态管理系统</h1>
+  <div class="clock" id="clock"></div>
+</header>
+
+<div class="conn-banner" id="connBanner">
+  ⚠ 无法连接本地数据服务，当前的修改暂时不会被保存。请确认"启动服务"窗口是否仍在运行，然后刷新本页面。
+</div>
+
+<section class="summary-bar" id="summaryBar">
+  <!-- 统计卡片由 JS 生成 -->
+</section>
+
+<section class="toolbar">
+  <div class="filter-group" id="filterGroup">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="空房">空房</button>
+    <button class="filter-btn" data-filter="已入住">已入住</button>
+    <button class="filter-btn" data-filter="打扫中">打扫中</button>
+  </div>
+  <div class="search-group">
+    <input type="text" id="searchInput" placeholder="输入房间号搜索...">
+  </div>
+</section>
+
+<main id="roomContainer">
+  <!-- 房间卡片按区域分组，由 JS 生成 -->
+</main>
+
+<!-- 状态修改弹窗 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalTitle">修改房间状态</h2>
+    <p class="modal-sub" id="modalSub"></p>
+
+    <div class="status-choice" id="statusChoice">
+      <button class="status-option" data-status="空房">空房</button>
+      <button class="status-option" data-status="已入住">已入住</button>
+      <button class="status-option" data-status="打扫中">打扫中</button>
+    </div>
+
+    <div class="time-fields" id="timeFields">
+      <label>
+        入住时间
+        <input type="datetime-local" id="checkInInput">
+      </label>
+      <label>
+        预计退房时间
+        <input type="datetime-local" id="checkOutInput">
+      </label>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" id="btnCancel">取消</button>
+      <button class="btn-save" id="btnSave">保存</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
